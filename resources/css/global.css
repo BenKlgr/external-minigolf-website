@@ -1,0 +1,127 @@
+:root {
+  --background: white;
+  --background-darker: #ECECEC;
+  --text: #5F6872;
+  --text-dark: #363C42;
+  --font-size-xxl: 96px;
+  --font-size-xl: 40px;
+  --font-size-lg: 32px;
+  --font-size-bigger: 24px;
+  --font-size-normal: 20px;
+  --font-size-smaller: 16px;
+
+  --breakpoint-mobile: 900px;
+}
+
+/* Global */
+body, html {
+  background-color: var(--background);
+  font-size: var(--font-size-normal);
+  color: var(--text)
+}
+@media screen and (max-width: 1100px) {
+  .show-desktop {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+/* Sections */
+header {
+  height: 100vh;
+}
+section {
+  width: 100%;
+  padding: 3rem 0rem;
+}
+section:nth-child(2n+1) {
+  background-color: var(--background-darker);
+}
+footer {
+  padding: 1rem 0rem;
+  text-align: center;
+}
+
+/* Typography */
+h1 {
+  font-size: var(--font-size-xxl);
+  color: var(--text-dark)
+}
+h2 {
+  font-size: var(--font-size-xl);
+  color: var(--text-dark)
+}
+h3 {
+  font-size: var(--font-size-lg);
+  color: var(--text-dark)
+}
+.subtitle {
+  font-size: var(--font-size-bigger);
+}
+a {
+  color: var(--bs-primary)
+}
+
+/* Navigation */
+nav {
+  padding: 1rem 0rem;
+}
+.navbar-nav {
+  flex-direction: row;
+}
+.nav-item {
+  margin-right: 2rem;
+}
+.nav-link {
+  color: var(--bs-white);
+  opacity: 0.8;
+  transition: opacity .6s ease;
+}
+.nav-link:hover {
+  color: var(--bs-white);
+  opacity: 1;
+}
+
+/* Header */
+header {
+  position: relative;
+  background-image: url('/resources/images/header-background.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+header .welcome-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+header .welcome-text * {
+  color: var(--bs-white)
+}
+
+/* Icon Collection */
+.icon-collection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon-collection > i {
+  font-size: 75px;
+  width: auto;
+  opacity: .6;
+}
+
+/* Footer */
+footer p {
+  margin: 0;
+  opacity: .8;
+  font-size: var(--font-size-smaller);
+}
