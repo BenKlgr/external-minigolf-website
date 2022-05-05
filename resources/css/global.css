@@ -85,6 +85,39 @@ nav {
   color: var(--bs-white);
   opacity: 1;
 }
+.mobile-sidenav-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 100;
+  display: none;
+}
+.mobile-sidenav-container.open {
+  display: block;
+}
+.mobile-sidenav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 80%;
+  background-color: var(--bs-white);
+  z-index: 150;
+}
+.mobile-sidenav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mobile-sidenav li {
+  margin-bottom: 1rem;
+}
+.sidenav-closebutton {
+  font-size: var(--font-size-bigger);
+}
 
 /* Header */
 header {
@@ -117,6 +150,15 @@ header .welcome-text * {
   font-size: 75px;
   width: auto;
   opacity: .6;
+}
+
+/* Openings */
+.openings > div {
+  padding: .5rem 0rem
+}
+.openings > div.today{
+  background-color: var(--background-darker);
+  border-radius: 8px;
 }
 
 /* Footer */
