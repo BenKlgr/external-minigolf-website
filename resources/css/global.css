@@ -9,6 +9,7 @@
   --font-size-bigger: 24px;
   --font-size-normal: 20px;
   --font-size-smaller: 16px;
+  --icon-size: 75px;
 
   --breakpoint-mobile: 900px;
 }
@@ -29,12 +30,13 @@ html {
   }
 
   :root {
-    --font-size-xxl: 72px;
+    --font-size-xxl: 60px;
     --font-size-xl: 32px;
     --font-size-lg: 26px;
     --font-size-bigger: 20px;
     --font-size-normal: 16px;
     --font-size-smaller: 12px;
+    --icon-size: 50px;
   }
 }
 /* Device is desktop */
@@ -198,7 +200,7 @@ header .view-more i {
 }
 
 .icon-collection > i {
-  font-size: 75px;
+  font-size: var(--icon-size);
   width: 100%;
   text-align: center;
   position: relative;
