@@ -71,6 +71,7 @@ footer {
 h1 {
   font-size: var(--font-size-xxl);
   color: var(--text-dark);
+  font-weight: 700;
 }
 h2 {
   font-size: var(--font-size-xl);
@@ -79,12 +80,18 @@ h2 {
 h3 {
   font-size: var(--font-size-lg);
   color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 .subtitle {
   font-size: var(--font-size-bigger);
 }
 a {
   color: var(--bs-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--bs-primary-dark);
 }
 
 /* Navigation */
@@ -205,6 +212,23 @@ header .view-more i {
 .openings > div.today {
   background-color: var(--background-darker);
   border-radius: 8px;
+}
+
+/* Range */
+.tabs-item {
+  font-weight: bold;
+  cursor: pointer;
+}
+.tabs-item.active {
+  cursor: default;
+  pointer-events: none;
+  color: var(--bs-primary);
+}
+
+/* Social Icons */
+.social-icon {
+  font-size: var(--font-size-xl);
+  color: var(--text);
 }
 
 /* Footer */
