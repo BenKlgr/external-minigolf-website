@@ -114,7 +114,12 @@ nav {
 }
 .nav-link:hover {
   color: var(--bs-white);
-  opacity: 1;
+}
+.nav-link:focus {
+  color: var(--bs-white);
+}
+.nav-link:active {
+  color: var(--bs-white);
 }
 .mobile-sidenav-container {
   position: fixed;
