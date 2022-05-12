@@ -17,40 +17,39 @@ sidenavClosebutton.addEventListener('click', () => {
 })
 
 // Opening Times
-const currentDate = new Date();
+const currentDate = moment();
 const openingRows = document.querySelectorAll('.openings > div');
-const currentDayIndex = currentDate.getDay() - 1;
+const currentDayIndex = currentDate.day() - 1;
 
-const currentDayRow = openingRows[currentDayIndex];
-currentDayRow.classList.add('today');
-
-const currentOpeningTimes = currentDayRow.querySelectorAll('.col')[1];
-if(currentOpeningTimes) {
-  const innerText = currentOpeningTimes.innerHTML.trim();
-  const timeStrings = innerText.split(' - ');
-  if(timeStrings.length == 2) {
-
-    try {
-      const openDate = new Date();
-      const openTime = timeStrings[0].split(':');
-      openDate.setHours(openTime[0]);
-      openDate.setMinutes(openTime[1]);
+(async () => {
+  const response = await fetch('/resources/data/openingTimes.json');
+  const json = await response.json();
   
-      const closeDate = new Date();
-      const closeTime = timeStrings[1].split(':');
-      closeDate.setHours(closeTime[0]);
-      closeDate.setMinutes(closeTime[1]);
-  
+  json.forEach((times, index) => {
+    const currentDayRow = openingRows[index];
+    const openingTimesCol = currentDayRow.querySelectorAll('.col')[1];
+
+    openingTimesCol.innerHTML = `${times.opening} - ${times.closing}`;
+
+    if(index == currentDayIndex) {
+      currentDayRow.classList.add('today');
+
+      const openDate = moment(times.opening, 'HH:mm');
+      const closeDate = moment(times.closing, 'HH:mm');
+
       if(currentDate >= openDate && currentDate <= closeDate) {
-        currentOpeningTimes.innerHTML += `<span class="badge bg-primary">Geöffnet</span>`;
+        const differenceToClose = Math.abs(currentDate.diff(closeDate, 'minutes'));
+        if(differenceToClose <= 60) {
+          openingTimesCol.innerHTML += `<span class="badge bg-warning">Schließt bald</span>`;
+        } else {
+          openingTimesCol.innerHTML += `<span class="badge bg-primary">Geöffnet</span>`;
+        }
       } else {
-        currentOpeningTimes.innerHTML += `<span class="badge bg-secondary">Geschlossen</span>`;
+        openingTimesCol.innerHTML += `<span class="badge bg-secondary">Geschlossen</span>`;
       }
-    } catch(exception) {
-      console.error(exception);
     }
-  }
-}
+  })
+})();
 
 // Service Range Tabs
 function hideAllTabContents() {
